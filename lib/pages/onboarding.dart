@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:future_job/pages/login_page.dart';
+import 'package:future_job/pages/register_page.dart';
 import 'package:future_job/theme.dart';
 import 'package:future_job/widget/button.dart';
 
@@ -41,12 +42,29 @@ class Onboarding extends StatelessWidget {
                   ),
                   Wrap(
                     children: [
-                      const Center(
-                          child: Button(
-                        title: 'Get Started',
+                      Center(
+                          child: SizedBox(
                         width: 200.0,
-                        backgroundColor: 0xffFFFFFF,
-                        titleColor: 0xff4141A4,
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisterPage()));
+                            },
+                            style: TextButton.styleFrom(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 12),
+                                backgroundColor: whiteColor,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(66))),
+                            child: Text(
+                              'Get Started',
+                              style: purpleTextStyle.copyWith(
+                                fontWeight: medium,
+                              ),
+                            )),
                       )),
                       const SizedBox(
                         height: 60,

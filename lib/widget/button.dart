@@ -7,12 +7,14 @@ class Button extends StatelessWidget {
   final double width;
   final int backgroundColor;
   final int titleColor;
+  final Future onPressed;
   const Button(
       {Key? key,
       required this.title,
       required this.width,
       required this.backgroundColor,
-      required this.titleColor})
+      required this.titleColor,
+      required this.onPressed})
       : super(key: key);
 
   @override
@@ -20,7 +22,9 @@ class Button extends StatelessWidget {
     return SizedBox(
       width: width,
       child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            onPressed;
+          },
           style: TextButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 12),
               backgroundColor: Color(backgroundColor),
