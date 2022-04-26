@@ -1,5 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:future_job/pages/home_page.dart';
 import 'package:future_job/pages/login_page.dart';
 import 'package:future_job/theme.dart';
 
@@ -12,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   late bool isEmailValid = true;
+  bool isUploaded = false;
 
   TextEditingController emailController = TextEditingController(text: '');
   @override
@@ -34,13 +36,38 @@ class _RegisterPageState extends State<RegisterPage> {
       );
     }
 
+    Widget showImage() {
+      return InkWell(
+        onTap: () {
+          setState(() {
+            isUploaded = !isUploaded;
+          });
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 50.0),
+          child: Image.asset(
+            'assets/profile_register.png',
+            width: 120,
+            height: 120,
+          ),
+        ),
+      );
+    }
+
     Widget profileUpload() {
-      return Container(
-        margin: const EdgeInsets.only(top: 50.0),
-        child: Image.asset(
-          'assets/profile_pic.png',
-          width: 120,
-          height: 120,
+      return InkWell(
+        onTap: () {
+          setState(() {
+            isUploaded = !isUploaded;
+          });
+        },
+        child: Container(
+          margin: const EdgeInsets.only(top: 50.0),
+          child: Image.asset(
+            'assets/upload_image.png',
+            width: 120,
+            height: 120,
+          ),
         ),
       );
     }
@@ -196,10 +223,8 @@ class _RegisterPageState extends State<RegisterPage> {
         margin: const EdgeInsets.only(top: 40),
         child: TextButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const RegisterPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
             style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 12),
@@ -238,7 +263,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: ListView(
                   children: [
                     header(),
-                    profileUpload(),
+                    isUploaded ? showImage() : profileUpload(),
                     inputFullname(),
                     inputEmail(),
                     inputPassword(),

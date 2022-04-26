@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:future_job/pages/login_page.dart';
 import 'package:future_job/pages/register_page.dart';
 import 'package:future_job/theme.dart';
-import 'package:future_job/widget/button.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({Key? key}) : super(key: key);

@@ -2,8 +2,6 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:future_job/pages/register_page.dart';
 import 'package:future_job/theme.dart';
-import 'package:future_job/widget/button.dart';
-import 'package:future_job/widget/inputField.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
